@@ -1,0 +1,14 @@
+name: pr-merged-with-master
+
+on:
+  pull_request:
+    branches:
+      - master
+    types: [closed]
+
+jobs:
+  pr-merged-with-master:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Branch merged with master!"
